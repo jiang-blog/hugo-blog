@@ -29,4 +29,4 @@ jobs:
                   EXTERNAL_REPOSITORY: jiang849725768/jiang849725768.github.io
                   PUBLISH_BRANCH: master
                   PUBLISH_DIR: ./public
-                  commit_message: ${{ github.event.head_commit.message }}
+                  # commit_message: ${{ github.event.head_commit.message }}
