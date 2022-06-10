@@ -14,20 +14,21 @@ jobs:
                   submodules: true
                   fetch-depth: 0
 
+            - name: Build Link Index
+              uses: jackyzha0/hugo-obsidian@v2.13
+              with:
+                input: content # input folder
+                output: assets/indices   # output folder
+                index: true    # whether to index content
+                root: .
+
             - name: Setup Hugo
               uses: peaceiris/actions-hugo@v2
               with:
                   hugo-version: "latest"
 
-            - name: Build Link Index
-              uses: jackyzha0/hugo-obsidian@v2.1
-              with:
-                input: content # input folder
-                output: data   # output folder
-                index: true    # whether to index content
-
             - name: Build Web
-              run: hugo
+              run: hugo  --minify
 
             - name: Deploy Web
               uses: peaceiris/actions-gh-pages@v3
