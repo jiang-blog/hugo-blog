@@ -19,6 +19,13 @@ jobs:
               with:
                   hugo-version: "latest"
 
+            - name: Build Link Index
+              uses: jackyzha0/hugo-obsidian@v2.1
+              with:
+                input: content # input folder
+                output: data   # output folder
+                index: true    # whether to index content
+
             - name: Build Web
               run: hugo
 
