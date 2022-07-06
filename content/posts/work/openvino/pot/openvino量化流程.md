@@ -17,7 +17,7 @@ title: openvino 量化
 > [!cite] 参考
 > [Post Training Quantization with OpenVINO Toolkit (learnopencv.com)](https://learnopencv.com/post-training-quantization-with-openvino-toolkit/)
 
-初步理解 openvino 的量化过程应该属于 [[神经网络量化#静态训练后量化|静态训练后量化]]
+初步理解 openvino 的量化过程应该属于 [静态训练后量化](神经网络量化#静态训练后量化)
 在使用 POT 进行量化的过程中，通过指定的硬件在模型图中插入一个名为 `FakeQuantize` 的操作。
 
 ![](https://s2.loli.net/2022/06/06/f7MmEuhlHyz8aWD.png)
@@ -60,9 +60,9 @@ else:
 从计算的角度来看，FakeQuantize 公式也相应地分为两部分
 $$output = round((x - input\_low) / (input\_high - input\_low) * (levels-1)) / (levels-1) * (output\_high - output\_low) + output\_low$$
 
-量化操作：$$q = round((x - input\_low) / (input\_high - input\_low) * (levels-1))$$
-去量化操作：$$r = q / (levels-1) * (output\_high - output\_low) + output\_low$$
-刻度/零点表示法下的去量化操作：$$r = (output\_high - output\_low) / (levels-1) * (q + output\_low / (output\_high - output\_low) * (levels-1))$$
+量化操作：$$q = round(\frac{(x - input\_low)} {(input\_high - input\_low)} * (levels-1))$$
+去量化操作：$$r = \frac{q * (output\_high - output\_low)} {(levels-1)} + output\_low$$
+刻度/零点表示法下的去量化操作：$$r = \frac{(output\_high - output\_low)} {(levels-1)} * (q + \frac{output\_low} {(output\_high - output\_low)} * (levels-1))$$
 因此可定义：
 - **缩放**为$(output\_high - output\_low) / (levels-1)$
 - **零点**为$-output\_low / (output\_high - output\_low) * (levels-1)$

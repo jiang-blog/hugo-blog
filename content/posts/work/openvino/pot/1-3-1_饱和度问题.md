@@ -1,6 +1,6 @@
 ---
 tags: []
-categories: ["work"]
+categories: ["work", "openvino_pot"]
 description:
 summary:
 draft: false
