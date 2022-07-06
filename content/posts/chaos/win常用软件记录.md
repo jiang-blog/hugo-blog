@@ -477,3 +477,14 @@ https://www.microsoft.com/zh-cn/p/translucenttb/9pf4kz2vn4w9?rtc=1&activetab=piv
 暂未安装/使用
 
 常年隐藏任务栏，用处不大
+
+<div id="cusdis_thread"
+  data-host="https://cusdis-production-26a4.up.railway.app"
+  data-app-id="4549310a-56c1-49c5-ae4c-a505292e8486"
+  data-page-id="{{ PAGE_ID }}"
+  data-page-url="{{ PAGE_URL }}"
+  data-page-title="{{ PAGE_TITLE }}"
+>
+</div>
+<script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis-production-26a4.up.railway.app/js/cusdis.es.js"></script>
